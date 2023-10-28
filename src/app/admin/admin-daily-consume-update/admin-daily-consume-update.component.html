@@ -1,37 +1,37 @@
-<div class="container-lg" >
+<div class="container-lg mt-5">
 
-  <div class="card m-5">
-    <div class="card-body">
-      <div class="col-lg-12">
-        <div class="row mt-3">
-          <div class="col-lg-6">
-            <label class="fw-bold">Name: </label> ABC
-          </div>
-          <div class="col-lg-6">
-            <label class="fw-bold">Mobile no: </label> 0167
-          </div>
-        </div>
+<!--  <div class="card m-5">-->
+<!--    <div class="card-body">-->
+<!--      <div class="col-lg-12">-->
+<!--        <div class="row mt-3">-->
+<!--          <div class="col-lg-6">-->
+<!--            <label class="fw-bold">Name: </label> ABC-->
+<!--          </div>-->
+<!--          <div class="col-lg-6">-->
+<!--            <label class="fw-bold">Mobile no: </label> 0167-->
+<!--          </div>-->
+<!--        </div>-->
 
-        <div class="row mt-3">
-          <div class="col-lg-6">
-            <label class="fw-bold">Student ID: </label> ID
-          </div>
-          <div class="col-lg-6">
-            <label class="fw-bold">Email: </label> @
-          </div>
-        </div>
+<!--        <div class="row mt-3">-->
+<!--          <div class="col-lg-6">-->
+<!--            <label class="fw-bold">Student ID: </label> ID-->
+<!--          </div>-->
+<!--          <div class="col-lg-6">-->
+<!--            <label class="fw-bold">Email: </label> @-->
+<!--          </div>-->
+<!--        </div>-->
 
-        <div class="row mt-3">
-          <div class="col-lg-6">
-            <label class="fw-bold">Department: </label> Software
-          </div>
-          <div class="col-lg-6">
-            <label class="fw-bold">CGPA: </label> 8.0
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<!--        <div class="row mt-3">-->
+<!--          <div class="col-lg-6">-->
+<!--            <label class="fw-bold">Department: </label> Software-->
+<!--          </div>-->
+<!--          <div class="col-lg-6">-->
+<!--            <label class="fw-bold">CGPA: </label> 8.0-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
 
 
 
@@ -40,27 +40,19 @@
 
       <div class="row">
 
-        <div class="col-md-8"></div>
+        <div class="col-md-9"></div>
 
-        <div class="col-md-4">
-          <div class="row justify-content-center ms-5">
+        <div class="col-md-3">
+          <div class="row justify-content-center">
             Cost type:
             <div class="col-md-2">
               <div class="form-check form-switch">
                 <input class="form-check-input"
                        type="checkbox"
                        role="switch"
-                       id="flexSwitchCheckDefault1" checked>
-                <label class="form-check-label tex" for="flexSwitchCheckDefault1">All</label>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="form-check form-switch">
-                <input class="form-check-input"
-                       type="checkbox"
-                       role="switch"
-                       id="flexSwitchCheckDefault2">
-                <label class="form-check-label" for="flexSwitchCheckDefault2">Individual</label>
+                       [(ngModel)]="isCostTypeAll"
+                       (change)="changeCostTypeAll(isCostTypeAll)">
+                <label class="form-check-label tex" >All</label>
               </div>
             </div>
           </div>
@@ -71,22 +63,23 @@
 
   </div>
 
-
+<!--Table-->
   <div>
     <table class="table table-bordered">
       <thead>
       <tr class="text-center">
-        <th scope="col">SL</th>
         <th scope="col">Name</th>
         <th scope="col">
-          All Present
-          <br>
-          <span class="text-nowrap m-1">
+           <span class="text-nowrap me-1">
              <input class="form-check-input"
                     type="checkbox"
-                    value=""
-                    id="All" checked>
+                    [(ngModel)]="isAllPresent"
+                    id="All"
+                    (change)="allPresent(isAllPresent)"
+                    [attr.checked]="isAllPresent ? true : null">
           </span>
+          All Present
+
         </th>
         <th scope="col">Per cost (Tk.)</th>
         <th scope="col">Food</th>
@@ -94,110 +87,94 @@
       </thead>
       <tbody class="text-center">
 
-      <tr>
-        <th scope="row">1</th>
+      <!--1st Data Row-->
+      <tr  *ngFor="let user of userList ;trackBy: trackId">
         <td>
-            Mark
+          {{this.user.fullName!}}
           <span class="text-nowrap ms-2">
              <input class="form-check-input"
                     type="checkbox"
                     value=""
-                    id="individualCost" [hidden]="false">
+                    id="individualCost" [hidden]="isCostTypeAll">
           </span>
         </td>
+
         <td class="text-nowrap">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <input class="form-check-input"
+                 type="checkbox"
+                 id="flexCheckDefault"
+                 [attr.checked]="isAllPresent ? true : null">
         </td>
+
         <td>
            <span class="my-auto-5">
-            <input readonly type="text"
+            <input  type="text"
                    class="form-control text-nowrap"
-                   placeholder="Username"
-                   value="" id="flexCheckDefault18">
+                   placeholder="Cost"
+                    [(ngModel)]="perCost"
+                    id="flexCheckDefault18"
+                    [attr.readOnly]="isCostTypeAll ? true : null">
           </span>
 
         </td>
-        <td>Pizza</td>
-      </tr>
-
-      <tr>
-        <th scope="row">2</th>
         <td>
-          Mark
-          <span class="text-nowrap">
-             <input class="form-check-input"
-                    type="checkbox"
+
+           <span class="my-auto-5">
+            <input  type="text"
+                    class="form-control text-nowrap"
+                    placeholder="Food"
+                    [(ngModel)]="commonFood"
                     value=""
-                    id="individualCost1" [hidden]="true">
-          </span>
-        </td>
-        <td class="text-nowrap">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
-        </td>
-        <td>
-          <span class="my-auto-5">
-            <input readonly type="text"
-                   class="form-control text-nowrap"
-                   placeholder="Username"
-                   value="" id="flexCheckDefault8">
-          </span>
-        </td>
-        <td>Pizza</td>
-      </tr>
-
-      <tr>
-        <th scope="row">3</th>
-        <td>
-          Mark
-          <span class="text-nowrap">
-             <input class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="individualCost2" [hidden]="true">
-          </span>
-        </td>
-        <td class="text-nowrap">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
-        </td>
-        <td>
-          <span class="my-auto-5">
-            <input readonly type="text"
-                   class="form-control text-nowrap"
-                   placeholder="Username"
-                   value=""
-                   id="flexCheckDefault5">
+                    id="food1"
+                    [attr.readOnly]="isCostTypeAll ? true : null">
           </span>
 
-        </td>
-        <td>
-        <span class="my-auto-5">
-            <input readonly type="text"
-                   class="form-control text-nowrap"
-                   placeholder="Username"
-                   value=""
-                   id="food">
-          </span>
         </td>
       </tr>
 
       <tr>
-        <th></th>
         <td></td>
         <td></td>
-        <td>Total:
-
+        <td>
           <span class="my-auto-5">
             <input type="text"
                    class="form-control text-nowrap"
                    placeholder="Total Spent"
-                   value=""
+                   [(ngModel)]="totalSpent"
+                   (change)="totalValue(totalSpent)"
                    id="totalSpent">
           </span>
-
+        </td>
+        <td>
+          <input type="text"
+                 class="form-control text-nowrap"
+                 placeholder="commonFood"
+                 [(ngModel)]="commonFood"
+                 id="commonFood">
         </td>
       </tr>
+
       </tbody>
     </table>
   </div>
+
+  <div class="row" *ngIf="userList && userList.length > 0">
+
+    <div class="col-md-9"></div>
+    <div class="col-md-3 justify-content-end">
+      <button type="button" id="cancel-save" (click)="reset()" class="btn btn-secondary m-1">
+        <i class="fa fa-ban" aria-hidden="true"></i>
+        &nbsp;<span >Cancel</span>
+      </button>
+      <button type="submit" id="save-entity" (click)="submit()" class="btn btn-primary m-1">
+        <i class='fa fa-save'></i> <span>  Submit</span>
+      </button>
+    </div>
+
+
+  </div>
+
+
+
 
 </div>
