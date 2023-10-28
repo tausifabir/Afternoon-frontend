@@ -1,0 +1,203 @@
+<div class="container-lg" >
+
+  <div class="card m-5">
+    <div class="card-body">
+      <div class="col-lg-12">
+        <div class="row mt-3">
+          <div class="col-lg-6">
+            <label class="fw-bold">Name: </label> ABC
+          </div>
+          <div class="col-lg-6">
+            <label class="fw-bold">Mobile no: </label> 0167
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-lg-6">
+            <label class="fw-bold">Student ID: </label> ID
+          </div>
+          <div class="col-lg-6">
+            <label class="fw-bold">Email: </label> @
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-lg-6">
+            <label class="fw-bold">Department: </label> Software
+          </div>
+          <div class="col-lg-6">
+            <label class="fw-bold">CGPA: </label> 8.0
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="col-md-12 mb-2">
+
+      <div class="row">
+
+        <div class="col-md-8"></div>
+
+        <div class="col-md-4">
+          <div class="row justify-content-center ms-5">
+            Cost type:
+            <div class="col-md-2">
+              <div class="form-check form-switch">
+                <input class="form-check-input"
+                       type="checkbox"
+                       role="switch"
+                       id="flexSwitchCheckDefault1" checked>
+                <label class="form-check-label tex" for="flexSwitchCheckDefault1">All</label>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-check form-switch">
+                <input class="form-check-input"
+                       type="checkbox"
+                       role="switch"
+                       id="flexSwitchCheckDefault2">
+                <label class="form-check-label" for="flexSwitchCheckDefault2">Individual</label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+  </div>
+
+
+  <div>
+    <table class="table table-bordered">
+      <thead>
+      <tr class="text-center">
+        <th scope="col">SL</th>
+        <th scope="col">Name</th>
+        <th scope="col">
+          All Present
+          <br>
+          <span class="text-nowrap m-1">
+             <input class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="All" checked>
+          </span>
+        </th>
+        <th scope="col">Per cost (Tk.)</th>
+        <th scope="col">Food</th>
+      </tr>
+      </thead>
+      <tbody class="text-center">
+
+      <tr>
+        <th scope="row">1</th>
+        <td>
+            Mark
+          <span class="text-nowrap ms-2">
+             <input class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="individualCost" [hidden]="false">
+          </span>
+        </td>
+        <td class="text-nowrap">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        </td>
+        <td>
+           <span class="my-auto-5">
+            <input readonly type="text"
+                   class="form-control text-nowrap"
+                   placeholder="Username"
+                   value="" id="flexCheckDefault18">
+          </span>
+
+        </td>
+        <td>Pizza</td>
+      </tr>
+
+      <tr>
+        <th scope="row">2</th>
+        <td>
+          Mark
+          <span class="text-nowrap">
+             <input class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="individualCost1" [hidden]="true">
+          </span>
+        </td>
+        <td class="text-nowrap">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+        </td>
+        <td>
+          <span class="my-auto-5">
+            <input readonly type="text"
+                   class="form-control text-nowrap"
+                   placeholder="Username"
+                   value="" id="flexCheckDefault8">
+          </span>
+        </td>
+        <td>Pizza</td>
+      </tr>
+
+      <tr>
+        <th scope="row">3</th>
+        <td>
+          Mark
+          <span class="text-nowrap">
+             <input class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="individualCost2" [hidden]="true">
+          </span>
+        </td>
+        <td class="text-nowrap">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
+        </td>
+        <td>
+          <span class="my-auto-5">
+            <input readonly type="text"
+                   class="form-control text-nowrap"
+                   placeholder="Username"
+                   value=""
+                   id="flexCheckDefault5">
+          </span>
+
+        </td>
+        <td>
+        <span class="my-auto-5">
+            <input readonly type="text"
+                   class="form-control text-nowrap"
+                   placeholder="Username"
+                   value=""
+                   id="food">
+          </span>
+        </td>
+      </tr>
+
+      <tr>
+        <th></th>
+        <td></td>
+        <td></td>
+        <td>Total:
+
+          <span class="my-auto-5">
+            <input type="text"
+                   class="form-control text-nowrap"
+                   placeholder="Total Spent"
+                   value=""
+                   id="totalSpent">
+          </span>
+
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
